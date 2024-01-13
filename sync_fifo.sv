@@ -16,16 +16,19 @@ module sync_fifo #(parameter DEPTH=8, WIDTH=8) (
             empty       <= 1;
             head        <= 0;
             tail        <= 0;
-        end else if (write & !full) begin
-            data[head]  <= data_in;
-            head        <= head + 1;
-            empty       <= 0;
-            full        <= (head == tail) ? 1 : 0;
-        end else if (read & !empty) begin
-            data_out    <= data[tail];
-            tail        <= tail + 1;
-            full        <= 0;
-            empty       <= (head == tail) ? 1 : 0;
+        end else begin
+            if (write & !full) begin
+                data[head]  <= data_in;
+                head        <= head + 1;
+                empty       <= 0;
+                full        <= (head == tail) ? 1 : 0;
+            end
+            if (read & !empty) begin
+                data_out    <= data[tail];
+                tail        <= tail + 1;
+                full        <= 0;
+                empty       <= (head == tail) ? 1 : 0;
+            end
         end
     end
 endmodule
