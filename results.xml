@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1720146240" />
+    <testcase name="test" classname="test_sync_fifo" file="/home/tw/note/sync_fifo/test_sync_fifo.py" lineno="11" time="0.00064849853515625" sim_time_ns="50.001" ratio_time="77102.71849411764" />
+  </testsuite>
+</testsuites>

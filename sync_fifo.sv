@@ -4,7 +4,7 @@ module sync_fifo #(parameter DEPTH=8, WIDTH=8) (
     input           [WIDTH-1:0] data_in,
     output logic    [WIDTH-1:0] data_out,
     output logic                full, empty
-)
+);
 
     logic [$clog2(DEPTH)-1:0]       head, tail;
     logic [DEPTH-1:0][WIDTH-1:0]    data;
